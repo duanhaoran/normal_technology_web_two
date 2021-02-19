@@ -55,23 +55,71 @@ const menu =[
     ],
     fixed: false
   },{
-    path: '/shopFood',
-    name: '餐饮管理',
+    path: '/InvestmentManager',
+    name: '行业协同',
     icon: 'el-icon-menu',
-
     level: 1,
     sort: 1,
     children: [
       {
-        path: '/shopFoodInfo',
-        name: '餐饮展示',
+        path: '/InvestmentManager/InvestPromoInfo',
+        name: '招商策划',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/InvestmentManager/InvestPromo',
+        name: '招商信息',
         icon: 'el-icon-menu',
         level: 1,
         sort: 1,
         children: [],
         fixed: false
       }
-
+    ],
+    fixed: false
+  },{
+    path: '/PersonManager',
+    name: '人员培训',
+    icon: 'el-icon-menu',
+    level: 1,
+    sort: 1,
+    children: [
+      {
+        path: '/PersonManager/CustomerService',
+        name: '客服人员',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/PersonManager/Guide',
+        name: '导游',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/PersonManager/Industry',
+        name: '行业人员',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/PersonManager/Prosecution',
+        name: '检查人员',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }
     ],
     fixed: false
   },{

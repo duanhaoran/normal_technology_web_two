@@ -6,8 +6,13 @@ import UserInfo from '../views/UserInfo'
 import Home from "../views/Home";
 import IndustryAdministration from "../views/Administration/IndustryAdministration";
 import EnterpriseAdministration from "../views/Administration/EnterpriseAdministration";
+import InvestPromoInfo from "../views/InvestmentManager/InvestPromoInfo";
+import InvestPromo from "../views/InvestmentManager/InvestPromo";
 import TouristAdministration from "../views/Administration/TouristAdministration";
-import ShopFoodInfo from "../views/ShopFoodInfo";
+import CustomerService from "../views/PersonManager/CustomerService"
+import Guide from "../views/PersonManager/Guide"
+import Industry from "../views/PersonManager/Industry"
+import Prosecution from "../views/PersonManager/Prosecution"
 import PersonInfo from "../views/PersonInfo";
 Vue.use(Router)
 
@@ -55,7 +60,6 @@ export default new Router({
             requireAuth: true
           }
         },
-
         {
           path: '/Administration/EnterpriseAdministration',
           name: 'EnterpriseAdministration',
@@ -66,11 +70,56 @@ export default new Router({
           }
         },
         {
-          path: '/shopFoodInfo',
-          name: 'ShopFoodInfo',
-          component: ShopFoodInfo,
+          path: '/InvestmentManager/InvestPromoInfo',
+          name: 'InvestPromoInfo',
+          component: InvestPromoInfo,
           meta:{
-            title:'餐饮展示',
+            title:'招商策划',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/InvestmentManager/InvestPromo',
+          name: 'InvestPromo',
+          component: InvestPromo,
+          meta:{
+            title:'招商信息',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/PersonManager/CustomerService',
+          name: 'CustomerService',
+          component: CustomerService,
+          meta:{
+            title:'客服人员培训',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/PersonManager/Guide',
+          name: 'Guide',
+          component: Guide,
+          meta:{
+            title:'导游培训',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/PersonManager/Industry',
+          name: 'Industry',
+          component: Industry,
+          meta:{
+            title:'行业人员培训',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/PersonManager/Prosecution',
+          name: 'Prosecution',
+          component: Prosecution,
+          meta:{
+            title:'检查人员培训',
             requireAuth: true
           }
         },
