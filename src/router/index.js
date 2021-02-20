@@ -14,6 +14,10 @@ import Guide from "../views/PersonManager/Guide"
 import Industry from "../views/PersonManager/Industry"
 import Prosecution from "../views/PersonManager/Prosecution"
 import PersonInfo from "../views/PersonInfo";
+import DepartmentAdministration from  "../views/Administration/DepartmentAdministration";
+import hotelIndustryRegulation  from  "../views/IndustryRegulation/hotelIndustryRegulation";
+import restaurantIndustryRegulation  from  "../views/IndustryRegulation/restaurantIndustryRegulation";
+import trafficIndustryRegulation  from  "../views/IndustryRegulation/trafficIndustryRegulation";
 Vue.use(Router)
 
 export default new Router({
@@ -41,6 +45,33 @@ export default new Router({
             requireAuth: true
           }
         },
+        {
+          path: '/IndustryRegulation/hotelIndustryRegulation',
+          name: 'hotelIndustryRegulation',
+          component: hotelIndustryRegulation,
+          meta:{
+            title:'酒店行业管理',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/IndustryRegulation/restaurantIndustryRegulation',
+          name: 'restaurantIndustryRegulation',
+          component: restaurantIndustryRegulation,
+          meta:{
+            title:'餐饮行业管理',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/IndustryRegulation/trafficIndustryRegulation',
+          name: 'trafficIndustryRegulation',
+          component: trafficIndustryRegulation,
+          meta:{
+            title:'交通行业管理',
+            requireAuth: true
+          }
+        },
 
         {
           path: '/Administration/IndustryAdministration',
@@ -48,6 +79,15 @@ export default new Router({
           component: IndustryAdministration,
           meta:{
             title:'行业管理',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/Administration/DepartmentAdministration',
+          name: 'DepartmentAdministration',
+          component: DepartmentAdministration,
+          meta:{
+            title:'部门管理',
             requireAuth: true
           }
         },

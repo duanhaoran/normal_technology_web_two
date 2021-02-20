@@ -50,7 +50,53 @@ const menu =[
         sort: 1,
         children: [],
         fixed: false
+      }, {
+        path: '/Administration/DepartmentAdministration',
+        name: '部门管理',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
       }
+
+
+    ],
+    fixed: false
+  }, {
+    path: '/IndustryRegulation',
+    name: '行业监管',
+    icon: 'el-icon-menu',
+
+    level: 1,
+    sort: 1,
+    children: [
+      {
+        path: '/IndustryRegulation/hotelIndustryRegulation',
+        name: '酒店行业管理',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }, {
+        path: '/IndustryRegulation/restaurantIndustryRegulation',
+        name: '餐饮行业管理',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }, {
+        path: '/IndustryRegulation/trafficIndustryRegulation',
+        name: '交通行业管理',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }
+
 
     ],
     fixed: false
