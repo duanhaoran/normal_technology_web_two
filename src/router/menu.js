@@ -67,7 +67,6 @@ const menu =[
     path: '/IndustryRegulation',
     name: '行业监管',
     icon: 'el-icon-menu',
-
     level: 1,
     sort: 1,
     children: [
@@ -98,6 +97,32 @@ const menu =[
       }
 
 
+    ],
+    fixed: false
+  },{
+    path: '/MarktingManager',
+    name: '媒体营销',
+    icon: 'el-icon-menu',
+    level: 1,
+    sort: 1,
+    children: [
+      {
+        path: '/MarktingManager/NewMarkting',
+        name: '新媒体营销',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/MarktingManager/OldMarkting',
+        name: '传统媒体营销',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }
     ],
     fixed: false
   },{

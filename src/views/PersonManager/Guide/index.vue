@@ -13,10 +13,10 @@
     <el-row class="drug-table-condition">
       <!--查询条件-->
       <el-col :span="4" :offset="1">
-        <el-input v-model="SelectModel.shopName" placeholder="店铺名称" clearable/>
+        <el-input v-model="SelectModel.personId" placeholder="人员id" clearable/>
       </el-col>
       <el-col :span="4" :offset="1">
-        <el-select v-model="SelectModel.shopLevel" placeholder="请选择店铺级别">
+        <el-select v-model="SelectModel.personStats" placeholder="培训状态">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -105,7 +105,7 @@
       >
       </el-table-column>
       <el-table-column
-        prop="personStats"
+        prop="stats"
         label="人员状态"
         width="200"
         align="center"
@@ -187,7 +187,7 @@
           <span>{{ InfoModel.personAge }}</span>
         </el-form-item>
         <el-form-item label="人员状态">
-          <span>{{ InfoModel.personStats }}</span>
+          <span>{{ InfoModel.stats }}</span>
         </el-form-item>
       </el-form>
     </el-dialog>
@@ -230,7 +230,14 @@
         </el-form-item>
         <el-form-item label="人员状态" prop="personStats">
           <el-col :span="12">
-            <el-input v-model="InfoModel.personStats" clearable style="width: 300px" />
+            <el-select v-model="InfoModel.personStats" placeholder="培训状态">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
           </el-col>
         </el-form-item>
         <!--信息修改按钮-->
@@ -284,7 +291,14 @@
         </el-form-item>
         <el-form-item label="人员状态" prop="personStats">
           <el-col :span="12">
-            <el-input v-model="AddModel.personStats" clearable style="width: 300px" />
+            <el-select v-model="AddModel.personStats" placeholder="培训状态">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
           </el-col>
         </el-form-item>
         <!-- 操作按钮 -->
@@ -313,14 +327,14 @@
           multipleSelection:[],
           //自定义查询
           options: [{
+            value: '',
+            label: '培训状态'
+          }, {
+            value: '0',
+            label: '培训中'
+          }, {
             value: '1',
-            label: '下拉框1'
-          }, {
-            value: '2',
-            label: '下拉框2'
-          }, {
-            value: '3',
-            label: '下拉框3'
+            label: '培训完成'
           }],
           SelectModel:{
             personId: '',
@@ -358,7 +372,7 @@
             personPhone: '',
             personSex: '',
             personAge: '',
-            personStats: '',
+            personStats: 0,
           },
           //变量
           personId: '',
@@ -409,8 +423,9 @@
             {
               pageNum:this.pageNum,
               pageSize:this.pageSize,
-              shopName:this.SelectModel.shopName,
-              shopLevel:this.SelectModel.shopLevel
+              personId:this.SelectModel.personId,
+              personStats:this.SelectModel.personStats,
+              personType:'导游'
             },
             (res) => {
               if (res.resultCode === 1) {

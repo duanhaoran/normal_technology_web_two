@@ -18,6 +18,9 @@ import DepartmentAdministration from  "../views/Administration/DepartmentAdminis
 import hotelIndustryRegulation  from  "../views/IndustryRegulation/hotelIndustryRegulation";
 import restaurantIndustryRegulation  from  "../views/IndustryRegulation/restaurantIndustryRegulation";
 import trafficIndustryRegulation  from  "../views/IndustryRegulation/trafficIndustryRegulation";
+import NewMarkting from "../views/MarktingManager/NewMarkting"
+import OldMarkting from "../views/MarktingManager/OldMarkting"
+
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +54,24 @@ export default new Router({
           component: hotelIndustryRegulation,
           meta:{
             title:'酒店行业管理',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/MarktingManager/NewMarkting',
+          name: 'newMarkting',
+          component: NewMarkting,
+          meta:{
+            title:'新媒体营销',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/MarktingManager/OldMarkting',
+          name: 'oldMarkting',
+          component: OldMarkting,
+          meta:{
+            title:'传统媒体营销',
             requireAuth: true
           }
         },
