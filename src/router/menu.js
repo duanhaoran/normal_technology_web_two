@@ -100,6 +100,81 @@ const menu =[
     ],
     fixed: false
   },{
+    path: '/PeopleSupervise',
+    name: '百姓监督',
+    icon: 'el-icon-menu',
+    level: 1,
+    sort: 1,
+    children: [
+      {
+        path: '/PeopleSupervise/enterpriseSupervise',
+        name: '百姓旅游企业监督',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/PeopleSupervise/peopleIndustrySupervise',
+        name: '百姓服务行业监督',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/PeopleSupervise/peopleDepartmentSupervise',
+        name: '百姓管理部门监督',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }
+
+
+    ],
+    fixed: false
+  }, {
+    path: '/DepartmentSupervise',
+    name: '部门监督',
+    icon: 'el-icon-menu',
+    level: 1,
+    sort: 1,
+    children: [
+      {
+        path: '/DepartmentSupervise/enterpriseSupervise',
+        name: '旅游企业监督',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },
+      {
+        path: '/DepartmentSupervise/DepartmentIndustrySupervise',
+        name: '服务行业监督',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },
+      {
+        path: '/DepartmentSupervise/DepartmentpeopleSupervise',
+        name: '游客质量监督',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }
+
+
+
+    ],
+    fixed: false
+  },{
     path: '/MarktingManager',
     name: '媒体营销',
     icon: 'el-icon-menu',

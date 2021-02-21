@@ -18,8 +18,14 @@ import DepartmentAdministration from  "../views/Administration/DepartmentAdminis
 import hotelIndustryRegulation  from  "../views/IndustryRegulation/hotelIndustryRegulation";
 import restaurantIndustryRegulation  from  "../views/IndustryRegulation/restaurantIndustryRegulation";
 import trafficIndustryRegulation  from  "../views/IndustryRegulation/trafficIndustryRegulation";
-import NewMarkting from "../views/MarktingManager/NewMarkting"
-import OldMarkting from "../views/MarktingManager/OldMarkting"
+import NewMarkting from "../views/MarktingManager/NewMarkting";
+import OldMarkting from "../views/MarktingManager/OldMarkting";
+import enterpriseSupervise from "../views/PeopleSupervise/enterpriseSupervise";
+import enterpriseSuperviseDe from "../views/DepartmentSupervise/enterpriseSupervise";
+import peopleIndustrySupervise from "../views/PeopleSupervise/peopleIndustrySupervise";
+import DepartmentIndustrySupervise from "../views/DepartmentSupervise/DepartmentIndustrySupervise";
+import peopleDepartmentSupervise from "../views/PeopleSupervise/peopleDepartmentSupervise";
+import DepartmentpeopleSupervise from "../views/DepartmentSupervise/DepartmentpeopleSupervise";
 
 Vue.use(Router)
 
@@ -54,6 +60,60 @@ export default new Router({
           component: hotelIndustryRegulation,
           meta:{
             title:'酒店行业管理',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/PeopleSupervise/enterpriseSupervise',
+          name: 'enterpriseSupervise',
+          component: enterpriseSupervise,
+          meta:{
+            title:'百姓旅游企业监督',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/PeopleSupervise/peopleIndustrySupervise',
+          name: 'peopleIndustrySupervise',
+          component: peopleIndustrySupervise,
+          meta:{
+            title:'百姓服务行业监督',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/PeopleSupervise/peopleDepartmentSupervise',
+          name: 'peopleDepartmentSupervise',
+          component: peopleDepartmentSupervise,
+          meta:{
+            title:'百姓管理部门监督',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/DepartmentSupervise/DepartmentIndustrySupervise',
+          name: 'DepartmentIndustrySupervise',
+          component: DepartmentIndustrySupervise,
+          meta:{
+            title:'部门服务行业监督',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/DepartmentSupervise/enterpriseSupervise',
+          name: 'enterpriseSuperviseDe',
+          component: enterpriseSuperviseDe,
+          meta:{
+            title:'部门旅游企业监督',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/DepartmentSupervise/DepartmentpeopleSupervise',
+          name: 'DepartmentpeopleSupervise',
+          component: DepartmentpeopleSupervise,
+          meta:{
+            title:'游客质量监督',
             requireAuth: true
           }
         },

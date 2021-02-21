@@ -179,7 +179,7 @@
       <el-form :model="AddModel"  label-width="90px" label-position="left">
         <!-- 信息列表 -->
         <el-form-item label="企业id" prop="enterpriseId">
-          <el-col :span="4" :offset="1">
+          <el-col :span="12" :offset="1">
             <el-select v-model="AddModel.enterpriseId" placeholder="请选择企业">
               <el-option
                 v-for="item in resultListIns"
