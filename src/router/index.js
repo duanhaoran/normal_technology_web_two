@@ -26,6 +26,7 @@ import peopleIndustrySupervise from "../views/PeopleSupervise/peopleIndustrySupe
 import DepartmentIndustrySupervise from "../views/DepartmentSupervise/DepartmentIndustrySupervise";
 import peopleDepartmentSupervise from "../views/PeopleSupervise/peopleDepartmentSupervise";
 import DepartmentpeopleSupervise from "../views/DepartmentSupervise/DepartmentpeopleSupervise";
+import TourismConsultation from "../views/TourismServiceStation/TourismConsultation";
 
 Vue.use(Router)
 
@@ -123,6 +124,15 @@ export default new Router({
           component: NewMarkting,
           meta:{
             title:'新媒体营销',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/TourismServiceStation/TourismConsultation',
+          name: 'TourismConsultation',
+          component: TourismConsultation,
+          meta:{
+            title:'旅游咨询',
             requireAuth: true
           }
         },

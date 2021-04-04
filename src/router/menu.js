@@ -135,6 +135,42 @@ const menu =[
 
     ],
     fixed: false
+  },{
+    path: '/TourismServiceStation',
+    name: '旅游服务站',
+    icon: 'el-icon-menu',
+    level: 1,
+    sort: 1,
+    children: [
+      {
+        path: '/TourismServiceStation/TourismConsultation',
+        name: '旅游咨询',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/PeopleSupervise/peopleIndustrySupervise',
+        name: '百姓服务行业监督',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/PeopleSupervise/peopleDepartmentSupervise',
+        name: '百姓管理部门监督',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }
+
+
+    ],
+    fixed: false
   }, {
     path: '/DepartmentSupervise',
     name: '部门监督',
