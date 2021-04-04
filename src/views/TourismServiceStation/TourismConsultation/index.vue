@@ -62,7 +62,6 @@
       class="table"
       style="width: 100%"
       ref="multipleTable"
-      @selection-change="handleSelectionChange"
     >
 
       <el-table-column align="center" label="#"  type="index" width="180">
@@ -145,100 +144,94 @@
       <!-- 下划线 -->
       <el-divider><i class="el-icon-mouse"/></el-divider>
       <!-- 信息列 -->
-      <el-form :model="InfoModel" label-width="80px" label-position="left">
+      <el-form :model="resultListCC" label-width="80px" label-position="left">
         <el-form-item label="企业行业景点入住id">
-          <span>{{ InfoModel.enterpriseIndustryScenicId }}</span>
+          <span>{{ resultListCC.enterpriseName }}</span>
         </el-form-item>
         <el-form-item label="企业id">
-          <span>{{ InfoModel.enterpriseId }}</span>
-        </el-form-item>
-        <el-form-item label="行业id">
-          <span>{{ InfoModel.industryId }}</span>
-        </el-form-item>
-        <el-form-item label="景点Id">
-          <span>{{ InfoModel.scenicId }}</span>
+          <span>{{ resultListCC.enterpriseTxt }}</span>
         </el-form-item>
       </el-form>
     </el-dialog>
-    <!-- 修改详情的模态框 -->
-    <el-dialog title="信息修改" :visible.sync="updateVisible" center width="40%" top="6vh">
-      <!-- 下划线 -->
-      <el-divider><i class="el-icon-mouse"/></el-divider>
-      <!-- 信息添加 -->
-      <el-form :model="InfoModel" label-width="80px" label-position="left" >
-        <!--信息列表-->
-        <el-form-item label="企业行业景点入住id" prop="enterpriseIndustryScenicId">
-          <el-col :span="12">
-            <el-input v-model="InfoModel.enterpriseIndustryScenicId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="企业id" prop="enterpriseId">
-          <el-col :span="12">
-            <el-input v-model="InfoModel.enterpriseId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="行业id" prop="industryId">
-          <el-col :span="12">
-            <el-input v-model="InfoModel.industryId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="景点Id" prop="scenicId">
-          <el-col :span="12">
-            <el-input v-model="InfoModel.scenicId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <!--信息修改按钮-->
-        <el-form-item>
-          <el-col :span="6">
-            <el-button type="success" style="width: 100%;" round @click="handleUpdate()">修改信息</el-button>
-          </el-col>
-          <el-col :span="6" :offset="6">
-            <el-button type="warning" style="width: 100%;" round @click="updateVisible = false">
-              取消修改
-            </el-button>
-          </el-col>
-        </el-form-item>
-      </el-form>
-    </el-dialog>
-    <!-- 信息添加 -->
-    <el-dialog title="信息添加" :visible.sync="insertVisible" center width="40%" top="6vh">
-      <!-- 下划线 -->
-      <el-divider><i class="el-icon-mouse"/></el-divider>
-      <el-form :model="AddModel"  label-width="90px" label-position="left">
-        <!-- 信息列表 -->
-        <el-form-item label="企业行业景点入住id" prop="enterpriseIndustryScenicId">
-          <el-col :span="12">
-            <el-input v-model="AddModel.enterpriseIndustryScenicId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="企业id" prop="enterpriseId">
-          <el-col :span="12">
-            <el-input v-model="AddModel.enterpriseId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="行业id" prop="industryId">
-          <el-col :span="12">
-            <el-input v-model="AddModel.industryId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="景点Id" prop="scenicId">
-          <el-col :span="12">
-            <el-input v-model="AddModel.scenicId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <!-- 操作按钮 -->
-        <el-form-item>
-          <el-col :span="6">
-            <el-button type="success" style="width: 100%;" round @click="handleInsert()">信息添加</el-button>
-          </el-col>
-          <el-col :span="6" :offset="6">
-            <el-button type="warning" style="width: 100%;" round @click="insertVisible = false">
-              取消修改
-            </el-button>
-          </el-col>
-        </el-form-item>
-      </el-form>
-    </el-dialog>
+<!--    &lt;!&ndash; 修改详情的模态框 &ndash;&gt;-->
+<!--    <el-dialog title="信息修改" :visible.sync="updateVisible" center width="40%" top="6vh">-->
+<!--      &lt;!&ndash; 下划线 &ndash;&gt;-->
+<!--      <el-divider><i class="el-icon-mouse"/></el-divider>-->
+<!--      &lt;!&ndash; 信息添加 &ndash;&gt;-->
+<!--      <el-form :model="InfoModel" label-width="80px" label-position="left" >-->
+<!--        &lt;!&ndash;信息列表&ndash;&gt;-->
+<!--        <el-form-item label="企业行业景点入住id" prop="enterpriseIndustryScenicId">-->
+<!--          <el-col :span="12">-->
+<!--            <el-input v-model="InfoModel.enterpriseIndustryScenicId" clearable style="width: 300px" />-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="企业id" prop="enterpriseId">-->
+<!--          <el-col :span="12">-->
+<!--            <el-input v-model="InfoModel.enterpriseId" clearable style="width: 300px" />-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="行业id" prop="industryId">-->
+<!--          <el-col :span="12">-->
+<!--            <el-input v-model="InfoModel.industryId" clearable style="width: 300px" />-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="景点Id" prop="scenicId">-->
+<!--          <el-col :span="12">-->
+<!--            <el-input v-model="InfoModel.scenicId" clearable style="width: 300px" />-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--        &lt;!&ndash;信息修改按钮&ndash;&gt;-->
+<!--        <el-form-item>-->
+<!--          <el-col :span="6">-->
+<!--            <el-button type="success" style="width: 100%;" round @click="handleUpdate()">修改信息</el-button>-->
+<!--          </el-col>-->
+<!--          <el-col :span="6" :offset="6">-->
+<!--            <el-button type="warning" style="width: 100%;" round @click="updateVisible = false">-->
+<!--              取消修改-->
+<!--            </el-button>-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--      </el-form>-->
+<!--    </el-dialog>-->
+<!--    &lt;!&ndash; 信息添加 &ndash;&gt;-->
+<!--    <el-dialog title="信息添加" :visible.sync="insertVisible" center width="40%" top="6vh">-->
+<!--      &lt;!&ndash; 下划线 &ndash;&gt;-->
+<!--      <el-divider><i class="el-icon-mouse"/></el-divider>-->
+<!--      <el-form :model="AddModel"  label-width="90px" label-position="left">-->
+<!--        &lt;!&ndash; 信息列表 &ndash;&gt;-->
+<!--        <el-form-item label="企业行业景点入住id" prop="enterpriseIndustryScenicId">-->
+<!--          <el-col :span="12">-->
+<!--            <el-input v-model="AddModel.enterpriseIndustryScenicId" clearable style="width: 300px" />-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="企业id" prop="enterpriseId">-->
+<!--          <el-col :span="12">-->
+<!--            <el-input v-model="AddModel.enterpriseId" clearable style="width: 300px" />-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="行业id" prop="industryId">-->
+<!--          <el-col :span="12">-->
+<!--            <el-input v-model="AddModel.industryId" clearable style="width: 300px" />-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="景点Id" prop="scenicId">-->
+<!--          <el-col :span="12">-->
+<!--            <el-input v-model="AddModel.scenicId" clearable style="width: 300px" />-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--        &lt;!&ndash; 操作按钮 &ndash;&gt;-->
+<!--        <el-form-item>-->
+<!--          <el-col :span="6">-->
+<!--            <el-button type="success" style="width: 100%;" round @click="handleInsert()">信息添加</el-button>-->
+<!--          </el-col>-->
+<!--          <el-col :span="6" :offset="6">-->
+<!--            <el-button type="warning" style="width: 100%;" round @click="insertVisible = false">-->
+<!--              取消修改-->
+<!--            </el-button>-->
+<!--          </el-col>-->
+<!--        </el-form-item>-->
+<!--      </el-form>-->
+<!--    </el-dialog>-->
   </div>
 </template>
 
@@ -275,6 +268,10 @@
           pageSize: 5,
           resultList: [],
           resultListE: [],
+          resultListCC: {
+            enterpriseName: '',
+            enterpriseTxt: '',
+          },
           resultCount: 0,
           //模态框显示标志
           viewVisible: false,
@@ -373,10 +370,10 @@
           this.pageNum = page
           this.SelectByAny();
         },
-        //打开添加模态框
-        InsertWithModel() { // 查看学生详情
-          this.insertVisible = true
-        },
+        // //打开添加模态框
+        // InsertWithModel() { // 查看学生详情
+        //   this.insertVisible = true
+        // },
         //打开详情模态框
         ViewModel(id) {
           this.$axios.get(
@@ -384,7 +381,7 @@
             {id:id},
             (res) => {
               if (res.resultCode === 1) {
-                this.InfoModel = res.date
+                this.resultListCC = res.date.dataList,
                 this.viewVisible = true
                 return true
               } else {
@@ -394,131 +391,131 @@
               }
             })
         },
-        //文件下载
-        download(url, name) {
-          downloadFile(this.SelectModel, url , 'GET', name
-          )
-        },
-        //打开更新
-        UpdateModel(id) {
-          this.$axios.get(
-            this.selectOne,
-            {id:id},
-            (res)  => {
-              if (res.resultCode === 1) {
-                this.InfoModel = res.date
-                this.updateVisible = true
-              } else {
-                this.falseMession();
-                this.updateVisible = false
-                return false
-              }
-            })
-        },
-        //更新提交
-        handleUpdate() {
-          this.$axios.post(
-            this.updateOne,
-            this.InfoModel,
-            (res)   => {
-              if (res.resultCode === 1) {
-                this.successMession();
-                this.updateVisible = false
-                this.SelectByAny()
-              } else {
-                this.falseMession();
-                this.updateVisible = false
-              }
-            })
-        },
-        //添加提交
-        handleInsert() {
-          this.$axios.post(
-            this.insertOne,
-            this.AddModel,
-            (res) =>{
-              if (res.resultCode === 1){
-                this.successMession();
-                this.SelectByAny()
-                this.insertVisible = false
-              }else {
-                this.falseMession();
-              }
-            })
-        },
-        //批量删除
-        handleSelectionChange(val) {
-          this.multipleSelection = val;
-        },
-        //批量删除
-        DeleteByList(){
-          if (this.multipleSelection.length !==0) {
-            this.$confirm('是否删除信息？', '警告', {
-              confirmButtonText: '确定',
-              cancelButtonText: '取消',
-              type: 'error'
-            }).then(() => {
-              var listuserId = ''
-              var ids=Array();
-              this.multipleSelection.forEach(function (e) {
-                listuserId += e.personId+','
-                ids.push(e.personId)
-              })
-              listuserId = listuserId.substring(0, listuserId.length - 1);
-              this.$axios.del(
-                this.deleteByList,
-                {ids:listuserId},
-                (res) => {
-                  if(res.resultCode === 1){
-                    this.successMession();
-                    this.SelectByAny()
-                  } else {
-                    this.falseMession();
-                  }
-                });
-            }).catch(() => {
-              this.falseMession();
-            });
-          }
-          else {
-            this.$message({
-              type: 'error',
-              message: '请选择想要删除的信息',
-              center: true
-            })
-          }
-
-        },
-        //删除单个
-        DeleteModel(id){
-          this.$confirm('是否删除信息？', '警告', {
-            confirmButtonText: '确定',
-            cancelButtonText: '取消',
-            type: 'error'
-          }).then(() => {
-            this.$axios.del(
-              this.deleteOne,
-              {id:id},
-              (res)=>{
-                if(res.resultCode === 1){
-                  this.successMession();
-                  this.SelectByAny()
-                } else {
-                  this.$message({
-                    type: 'danger',
-                    message: '删除失败',
-                    center: true
-                  });
-                }
-              })
-          }).catch(() => {
-            this.$message({
-              type: 'info',
-              message: '已取消',
-              center: true
-            });
-          });
-        },
+        // //文件下载
+        // download(url, name) {
+        //   downloadFile(this.SelectModel, url , 'GET', name
+        //   )
+        // },
+        // //打开更新
+        // UpdateModel(id) {
+        //   this.$axios.get(
+        //     this.selectOne,
+        //     {id:id},
+        //     (res)  => {
+        //       if (res.resultCode === 1) {
+        //         this.InfoModel = res.date
+        //         this.updateVisible = true
+        //       } else {
+        //         this.falseMession();
+        //         this.updateVisible = false
+        //         return false
+        //       }
+        //     })
+        // },
+        // //更新提交
+        // handleUpdate() {
+        //   this.$axios.post(
+        //     this.updateOne,
+        //     this.InfoModel,
+        //     (res)   => {
+        //       if (res.resultCode === 1) {
+        //         this.successMession();
+        //         this.updateVisible = false
+        //         this.SelectByAny()
+        //       } else {
+        //         this.falseMession();
+        //         this.updateVisible = false
+        //       }
+        //     })
+        // },
+        // //添加提交
+        // handleInsert() {
+        //   this.$axios.post(
+        //     this.insertOne,
+        //     this.AddModel,
+        //     (res) =>{
+        //       if (res.resultCode === 1){
+        //         this.successMession();
+        //         this.SelectByAny()
+        //         this.insertVisible = false
+        //       }else {
+        //         this.falseMession();
+        //       }
+        //     })
+        // },
+        // //批量删除
+        // handleSelectionChange(val) {
+        //   this.multipleSelection = val;
+        // },
+        // //批量删除
+        // DeleteByList(){
+        //   if (this.multipleSelection.length !==0) {
+        //     this.$confirm('是否删除信息？', '警告', {
+        //       confirmButtonText: '确定',
+        //       cancelButtonText: '取消',
+        //       type: 'error'
+        //     }).then(() => {
+        //       var listuserId = ''
+        //       var ids=Array();
+        //       this.multipleSelection.forEach(function (e) {
+        //         listuserId += e.personId+','
+        //         ids.push(e.personId)
+        //       })
+        //       listuserId = listuserId.substring(0, listuserId.length - 1);
+        //       this.$axios.del(
+        //         this.deleteByList,
+        //         {ids:listuserId},
+        //         (res) => {
+        //           if(res.resultCode === 1){
+        //             this.successMession();
+        //             this.SelectByAny()
+        //           } else {
+        //             this.falseMession();
+        //           }
+        //         });
+        //     }).catch(() => {
+        //       this.falseMession();
+        //     });
+        //   }
+        //   else {
+        //     this.$message({
+        //       type: 'error',
+        //       message: '请选择想要删除的信息',
+        //       center: true
+        //     })
+        //   }
+        //
+        // },
+        // //删除单个
+        // DeleteModel(id){
+        //   this.$confirm('是否删除信息？', '警告', {
+        //     confirmButtonText: '确定',
+        //     cancelButtonText: '取消',
+        //     type: 'error'
+        //   }).then(() => {
+        //     this.$axios.del(
+        //       this.deleteOne,
+        //       {id:id},
+        //       (res)=>{
+        //         if(res.resultCode === 1){
+        //           this.successMession();
+        //           this.SelectByAny()
+        //         } else {
+        //           this.$message({
+        //             type: 'danger',
+        //             message: '删除失败',
+        //             center: true
+        //           });
+        //         }
+        //       })
+        //   }).catch(() => {
+        //     this.$message({
+        //       type: 'info',
+        //       message: '已取消',
+        //       center: true
+        //     });
+        //   });
+        // },
         //操作成功信息
         successMession(){
           this.$message({
