@@ -27,6 +27,10 @@ import DepartmentIndustrySupervise from "../views/DepartmentSupervise/Department
 import peopleDepartmentSupervise from "../views/PeopleSupervise/peopleDepartmentSupervise";
 import DepartmentpeopleSupervise from "../views/DepartmentSupervise/DepartmentpeopleSupervise";
 import TourismConsultation from "../views/TourismServiceStation/TourismConsultation";
+import BookTicketsManager from  "../views/TourismServiceStation/BookTicketsManager";
+import PurchasingAgent from "../views/TourismServiceStation/PurchasingAgent";
+import AccommodationReservation from "../views/TourismServiceStation/AccommodationReservation";
+import AccommodationRecommendation from "../views/TourismServiceStation/AccommodationRecommendation";
 
 Vue.use(Router)
 
@@ -127,12 +131,48 @@ export default new Router({
             requireAuth: true
           }
         },
+
+        {
+          path: '/TourismServiceStation/PurchasingAgent',
+          name: 'PurchasingAgent',
+          component: PurchasingAgent,
+          meta:{
+            title:'票务代购',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/TourismServiceStation/AccommodationReservation',
+          name: 'AccommodationReservation',
+          component: AccommodationReservation,
+          meta:{
+            title:'食宿预定',
+            requireAuth: true
+          }
+        },        {
+          path: '/TourismServiceStation/AccommodationRecommendation',
+          name: 'AccommodationRecommendation',
+          component: AccommodationRecommendation,
+          meta:{
+            title:'食宿推荐',
+            requireAuth: true
+          }
+        },
         {
           path: '/TourismServiceStation/TourismConsultation',
           name: 'TourismConsultation',
           component: TourismConsultation,
           meta:{
             title:'旅游咨询',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/TourismServiceStation/BookTicketsManager',
+          name: 'BookTicketsManager',
+          component: BookTicketsManager,
+          meta:{
+            title:'旅游预定',
             requireAuth: true
           }
         },

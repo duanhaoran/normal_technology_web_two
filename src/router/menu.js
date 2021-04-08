@@ -151,16 +151,32 @@ const menu =[
         children: [],
         fixed: false
       },{
-        path: '/PeopleSupervise/peopleIndustrySupervise',
-        name: '百姓服务行业监督',
+        path: '/TourismServiceStation/BookTicketsManager',
+        name: '旅游预定',
         icon: 'el-icon-menu',
         level: 1,
         sort: 1,
         children: [],
         fixed: false
       },{
-        path: '/PeopleSupervise/peopleDepartmentSupervise',
-        name: '百姓管理部门监督',
+        path: '/TourismServiceStation/PurchasingAgent',
+        name: '票务代购',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/TourismServiceStation/AccommodationReservation',
+        name: '食宿预定',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/TourismServiceStation/AccommodationRecommendation',
+        name: '食宿推荐',
         icon: 'el-icon-menu',
         level: 1,
         sort: 1,

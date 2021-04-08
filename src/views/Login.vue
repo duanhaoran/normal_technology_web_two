@@ -79,7 +79,7 @@
         });
           this.$axios.get(
             '/api/user/selectUserByAny',
-            {pageNum:1,pageSize:1,userName:store.state.common.user_name},
+            {pageNum:1,pageSize:1,userName:this.user.username},
             (res) => {
               if (res.resultCode === 1) {
                 this.$store.dispatch(

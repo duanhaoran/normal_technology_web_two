@@ -145,10 +145,10 @@
       <el-divider><i class="el-icon-mouse"/></el-divider>
       <!-- 信息列 -->
       <el-form :model="resultListCC" label-width="80px" label-position="left">
-        <el-form-item label="企业行业景点入住id">
+        <el-form-item label="企业名称">
           <span>{{ resultListCC.enterpriseName }}</span>
         </el-form-item>
-        <el-form-item label="企业id">
+        <el-form-item label="企业介绍">
           <span>{{ resultListCC.enterpriseTxt }}</span>
         </el-form-item>
       </el-form>
@@ -381,7 +381,7 @@
             {id:id},
             (res) => {
               if (res.resultCode === 1) {
-                this.resultListCC = res.date.dataList,
+                this.resultListCC = res.date,
                 this.viewVisible = true
                 return true
               } else {

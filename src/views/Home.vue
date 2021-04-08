@@ -54,8 +54,8 @@
     </el-container>
   </div>
 </template>
-
 <script>
+
   import menu from "../router/menu";
   import menu1 from "../router/menu1";
   import store from "../store"
