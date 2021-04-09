@@ -226,6 +226,24 @@ const menu =[
 
     ],
     fixed: false
+  }, {
+    path: '/CustomerServiceCenter',
+    name: '客服中心',
+    icon: 'el-icon-menu',
+    level: 1,
+    sort: 1,
+    children: [
+      {
+        path: '/CustomerServiceCenter/CustomerServiceTwo',
+        name: '客服服务',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }
+    ],
+    fixed: false
   },{
     path: '/MarktingManager',
     name: '媒体营销',

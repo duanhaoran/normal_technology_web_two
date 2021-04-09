@@ -31,6 +31,7 @@ import BookTicketsManager from  "../views/TourismServiceStation/BookTicketsManag
 import PurchasingAgent from "../views/TourismServiceStation/PurchasingAgent";
 import AccommodationReservation from "../views/TourismServiceStation/AccommodationReservation";
 import AccommodationRecommendation from "../views/TourismServiceStation/AccommodationRecommendation";
+import CustomerServiceTwo from "../views/CustomerServiceCenter/CustomerServiceTwo";
 
 Vue.use(Router)
 
@@ -149,7 +150,17 @@ export default new Router({
             title:'食宿预定',
             requireAuth: true
           }
-        },        {
+        },
+        {
+          path: '/CustomerServiceCenter/CustomerServiceTwo',
+          name: 'CustomerServiceTwo',
+          component: CustomerServiceTwo,
+          meta:{
+            title:'客服服务',
+            requireAuth: true
+          }
+        },
+        {
           path: '/TourismServiceStation/AccommodationRecommendation',
           name: 'AccommodationRecommendation',
           component: AccommodationRecommendation,
