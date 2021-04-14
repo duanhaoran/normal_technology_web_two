@@ -151,6 +151,14 @@ const menu =[
         children: [],
         fixed: false
       },{
+        path: '/TourismServiceStation/GuideService',
+        name: '导游服务',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
         path: '/TourismServiceStation/BookTicketsManager',
         name: '旅游预定',
         icon: 'el-icon-menu',
@@ -330,6 +338,40 @@ const menu =[
       },{
         path: '/PersonManager/Prosecution',
         name: '检查人员',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      }
+    ],
+    fixed: false
+  },{
+    path: '/TouristAnalysis',
+    name: '游客分析',
+    icon: 'el-icon-menu',
+    level: 1,
+    sort: 1,
+    children: [
+      {
+        path: '/TouristAnalysis/ScenicSpotPopularity',
+        name: '景点热度分析',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/TouristAnalysis/EnterprisePopularity',
+        name: '企业热度分析',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/TouristAnalysis/GuidePopularity',
+        name: '热门导游推荐',
         icon: 'el-icon-menu',
         level: 1,
         sort: 1,

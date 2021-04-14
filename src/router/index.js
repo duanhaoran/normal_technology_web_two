@@ -26,6 +26,11 @@ import peopleIndustrySupervise from "../views/PeopleSupervise/peopleIndustrySupe
 import DepartmentIndustrySupervise from "../views/DepartmentSupervise/DepartmentIndustrySupervise";
 import peopleDepartmentSupervise from "../views/PeopleSupervise/peopleDepartmentSupervise";
 import DepartmentpeopleSupervise from "../views/DepartmentSupervise/DepartmentpeopleSupervise";
+import ScenicSpotPopularity from "../views/TouristAnalysis/ScenicSpotPopularity";
+import EnterprisePopularity from "../views/TouristAnalysis/EnterprisePopularity";
+import GuidePopularity from "../views/TouristAnalysis/GuidePopularity";
+import GuideService from "../views/TourismServiceStation/GuideService";
+
 import TourismConsultation from "../views/TourismServiceStation/TourismConsultation";
 import BookTicketsManager from  "../views/TourismServiceStation/BookTicketsManager";
 import PurchasingAgent from "../views/TourismServiceStation/PurchasingAgent";
@@ -302,6 +307,42 @@ export default new Router({
           component: Prosecution,
           meta:{
             title:'检查人员培训',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/TouristAnalysis/ScenicSpotPopularity',
+          name: 'ScenicSpotPopularity',
+          component: ScenicSpotPopularity,
+          meta:{
+            title:'景点热度分析',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/TouristAnalysis/GuidePopularity',
+          name: 'GuidePopularity',
+          component: GuidePopularity,
+          meta:{
+            title:'导游热度分析',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/TouristAnalysis/EnterprisePopularity',
+          name: 'EnterprisePopularity',
+          component: EnterprisePopularity,
+          meta:{
+            title:'企业热度分析',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/TourismServiceStation/GuideService',
+          name: 'GuideService',
+          component: GuideService,
+          meta:{
+            title:'导游服务',
             requireAuth: true
           }
         },
