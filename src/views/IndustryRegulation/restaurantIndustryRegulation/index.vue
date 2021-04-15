@@ -66,6 +66,34 @@
       >
       </el-table-column>
       <el-table-column
+        prop="enterpriseLegalPerson"
+        label="注册法人"
+        width="200"
+        align="center"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="enterpriseCapital"
+        label="注册资金"
+        width="200"
+        align="center"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="enterpriseDate"
+        label="注册时间"
+        width="200"
+        align="center"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="enterpriseTxt"
+        label="企业介绍"
+        width="200"
+        align="center"
+      >
+      </el-table-column>
+      <el-table-column
         prop="enterpriseStatsString"
         label="企业状态"
         width="200"

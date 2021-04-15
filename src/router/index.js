@@ -37,6 +37,10 @@ import PurchasingAgent from "../views/TourismServiceStation/PurchasingAgent";
 import AccommodationReservation from "../views/TourismServiceStation/AccommodationReservation";
 import AccommodationRecommendation from "../views/TourismServiceStation/AccommodationRecommendation";
 import CustomerServiceTwo from "../views/CustomerServiceCenter/CustomerServiceTwo";
+import routePlan from "../views/CustomerServiceCenter/routePlan";
+import setMeal from "../views/CustomerServiceCenter/setMeal";
+import interaction from "../views/CustomerServiceCenter/interaction";
+
 
 Vue.use(Router)
 
@@ -162,6 +166,33 @@ export default new Router({
           component: CustomerServiceTwo,
           meta:{
             title:'客服服务',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/CustomerServiceCenter/routePlan',
+          name: 'routePlan',
+          component: routePlan,
+          meta:{
+            title:'routePlan',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/CustomerServiceCenter/interaction',
+          name: 'interaction',
+          component: interaction,
+          meta:{
+            title:'interaction',
+            requireAuth: true
+          }
+        },
+        {
+          path: '/CustomerServiceCenter/setMeal',
+          name: 'setMeal',
+          component: setMeal,
+          meta:{
+            title:'setMeal',
             requireAuth: true
           }
         },

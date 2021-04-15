@@ -249,6 +249,30 @@ const menu =[
         sort: 1,
         children: [],
         fixed: false
+      },{
+        path: '/CustomerServiceCenter/routePlan',
+        name: 'routePlan',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/CustomerServiceCenter/setMeal',
+        name: 'setMeal',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
+      },{
+        path: '/CustomerServiceCenter/interaction',
+        name: 'interaction',
+        icon: 'el-icon-menu',
+        level: 1,
+        sort: 1,
+        children: [],
+        fixed: false
       }
     ],
     fixed: false

@@ -76,6 +76,34 @@
       >
       </el-table-column>
       <el-table-column
+        prop="enterpriseLegalPerson"
+        label="注册法人"
+        width="200"
+        align="center"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="enterpriseCapital"
+        label="注册资金"
+        width="200"
+        align="center"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="enterpriseDate"
+        label="注册时间"
+        width="200"
+        align="center"
+      >
+      </el-table-column>
+      <el-table-column
+        prop="enterpriseTxt"
+        label="企业介绍"
+        width="200"
+        align="center"
+      >
+      </el-table-column>
+      <el-table-column
         prop="enterpriseStatsString"
         label="企业状态"
         width="200"
@@ -191,19 +219,35 @@
       <el-divider><i class="el-icon-mouse"/></el-divider>
       <el-form :model="AddModel"  label-width="90px" label-position="left">
         <!-- 信息列表 -->
-        <el-form-item label="企业id" prop="enterpriseId">
-          <el-col :span="12">
-            <el-input v-model="AddModel.enterpriseId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
         <el-form-item label="企业名称" prop="enterpriseName">
           <el-col :span="12">
             <el-input v-model="AddModel.enterpriseName" clearable style="width: 300px" />
           </el-col>
         </el-form-item>
-        <el-form-item label="企业状态" prop="enterpriseStats">
+        <el-form-item label="注册法人" prop="enterpriseName">
           <el-col :span="12">
-            <el-input v-model="AddModel.enterpriseStats" clearable style="width: 300px" />
+            <el-input v-model="AddModel.enterpriseLegalPerson" clearable style="width: 300px" />
+          </el-col>
+        </el-form-item>
+        <el-form-item label="注册资金" prop="enterpriseStats">
+          <el-col :span="12">
+            <el-input v-model="AddModel.enterpriseCapital" clearable style="width: 300px" />
+          </el-col>
+        </el-form-item>
+          <el-form-item label="注册时间" prop="enterpriseName">
+            <el-col :span="4" :offset="1">
+              <div class="block">
+                <el-date-picker
+                  v-model="AddModel.enterpriseDate"
+                  type="date"
+                  placeholder="选择日期">
+                </el-date-picker>
+              </div>
+            </el-col>
+        </el-form-item>
+        <el-form-item label="企业介绍" prop="enterpriseStats">
+          <el-col :span="12">
+            <el-input v-model="AddModel.enterpriseTxt" clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <!-- 操作按钮 -->
@@ -268,9 +312,11 @@
         },
         //新增信息
         AddModel: {
-          enterpriseId: '',
           enterpriseName: '',
-          enterpriseStats: '',
+          enterpriseLegalPerson:'',
+          enterpriseCapital:'',
+          enterpriseDate:'',
+          enterpriseTxt:'',
         },
         //变量
         enterpriseId: '',
@@ -283,6 +329,33 @@
         insertOne: '/api/enterprise/insertEnterpriseOne',
         deleteByList: '/api/enterprise/deleteEnterpriseByList',
         deleteOne: '/api/enterprise/deleteEnterpriseOne',
+        pickerOptions: {
+          disabledDate(time) {
+            return time.getTime() > Date.now();
+          },
+          shortcuts: [{
+            text: '今天',
+            onClick(picker) {
+              picker.$emit('pick', new Date());
+            }
+          }, {
+            text: '昨天',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24);
+              picker.$emit('pick', date);
+            }
+          }, {
+            text: '一周前',
+            onClick(picker) {
+              const date = new Date();
+              date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit('pick', date);
+            }
+          }]
+        },
+        value1: '',
+        value2: '',
       }
     },
     created() {
