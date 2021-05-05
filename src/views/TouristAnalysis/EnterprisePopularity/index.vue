@@ -12,52 +12,7 @@
       </el-col>
     </el-row>
     <br>
-    <!-- 条件模糊查询 -->
-    <el-row class="drug-table-condition">
-      <!--查询条件-->
-      <el-col :span="4" :offset="1">
-        <el-input v-model="SelectModel.opinionEnterpriseStr" placeholder="企业名称" clearable/>
-      </el-col>
-      <el-col :span="4" :offset="1">
-        <el-select v-model="SelectModel.opinionType" placeholder="请选择类型">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-      </el-col>
-      <!--查询按钮-->
-      <el-col :span="3" :offset="2">
-        <el-button type="primary"  style="width: 100%;" @click="SelectByAny()"
-                   icon="el-icon-search">查询
-        </el-button>
-      </el-col>
-    </el-row>
     <br>
-    <!--操作按钮-->
-    <el-row>
-      <!--批量删除按钮-->
-      <el-col :span="3" >
-        <el-button type="danger"  style="width: 80%;" @click="DeleteByList" size="small" icon="el-icon-delete">批量删除
-        </el-button>
-      </el-col>
-      <!--信息下载按钮-->
-      <el-col :span="3" :offset="8">
-        <el-button type="primary" icon="el-icon-document" size="small"
-                   @click="download(`/api/supervise/Exporttemplate`,'信息.xls')">
-          信息下载
-        </el-button>
-      </el-col>
-      <!--信息添加按钮-->
-      <el-col :span="3" >
-        <el-button type="success" icon="el-icon-upload2"  size="small"
-                   @click="InsertWithModel">
-          信息添加
-        </el-button>
-      </el-col>
-    </el-row>
     <!--主表格-->
     <el-table
       :data="resultList"
@@ -67,11 +22,6 @@
       ref="multipleTable"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column
-        type="selection"
-        width="55"
-      >
-      </el-table-column>
       <el-table-column align="center" label="企业排名"  type="index" width="180">
 
       </el-table-column>

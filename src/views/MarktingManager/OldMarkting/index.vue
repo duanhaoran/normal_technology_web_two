@@ -13,7 +13,7 @@
     <el-row class="drug-table-condition">
       <!--查询条件-->
       <el-col :span="4" :offset="1">
-        <el-select v-model="AddModel.marktingIndustryId" placeholder="招商行业">
+        <el-select v-model="SelectModel.marktingIndustryId" placeholder="招商行业">
           <el-option
             v-for="item in IndustryList"
             :key="item.value"
@@ -156,7 +156,7 @@
     >
     </el-pagination>
     <!-- 查看详情的模态框 -->
-    <el-dialog title="店铺详情" :visible.sync="viewVisible" center width="35%" top="6vh">
+    <el-dialog title="信息详情" :visible.sync="viewVisible" center width="35%" top="6vh">
       <!-- 下划线 -->
       <el-divider><i class="el-icon-mouse"/></el-divider>
       <!-- 信息列 -->
@@ -185,9 +185,9 @@
       <!-- 信息添加 -->
       <el-form :model="InfoModel" label-width="80px" label-position="left" >
         <!--信息列表-->
-        <el-form-item label="营销id" prop="marktingId">
+        <el-form-item label="营销id"  prop="marktingId">
           <el-col :span="12">
-            <el-input v-model="InfoModel.marktingId" clearable style="width: 300px" />
+            <el-input v-model="InfoModel.marktingId" disabled clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="营销企业" prop="marktingEnterpriseId">
@@ -238,14 +238,9 @@
       <el-divider><i class="el-icon-mouse"/></el-divider>
       <el-form :model="AddModel"  label-width="90px" label-position="left">
         <!-- 信息列表 -->
-        <el-form-item label="营销id" prop="marktingId">
-          <el-col :span="12">
-            <el-input v-model="AddModel.marktingId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
         <el-form-item label="投放平台" prop="marktingPlatform">
           <el-col :span="12">
-            <el-select v-model="AddModel.investPromoStats" placeholder="投放平台">
+            <el-select v-model="AddModel.marktingPlatform" placeholder="投放平台">
               <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -310,10 +305,7 @@
         //批量删除
         multipleSelection:[],
         //自定义下拉框
-        options: [ {
-          value: '网络视频',
-          label: '网络视频'
-        }, {
+        options: [{
           value: '电视',
           label: '电视'
         }],
@@ -343,7 +335,7 @@
         },
         //新增信息
         AddModel:{
-          marktingId: '',
+          marktingId: '0',
           marktingPlatform: '',
           marktingEnterpriseId: '',
           marktingIndustryId: '',

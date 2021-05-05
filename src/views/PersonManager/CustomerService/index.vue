@@ -200,7 +200,7 @@
         <!--信息列表-->
         <el-form-item label="人员ID" prop="personId">
           <el-col :span="12">
-            <el-input v-model="InfoModel.personId" clearable style="width: 300px" />
+            <el-input v-model="InfoModel.personId" disabled clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="人员类型" prop="personType">
@@ -259,14 +259,9 @@
       <el-divider><i class="el-icon-mouse"/></el-divider>
       <el-form :model="AddModel"  label-width="90px" label-position="left">
         <!-- 信息列表 -->
-        <el-form-item label="人员ID" prop="personId">
+        <el-form-item label="姓名" prop="personSfz">
           <el-col :span="12">
-            <el-input v-model="AddModel.personId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="人员类型" prop="personType">
-          <el-col :span="12">
-            <el-input v-model="AddModel.personType" clearable style="width: 300px" />
+            <el-input v-model="AddModel.personName" clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="身份证" prop="personSfz">
@@ -287,19 +282,6 @@
         <el-form-item label="年龄" prop="personAge">
           <el-col :span="12">
             <el-input v-model="AddModel.personAge" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="人员状态" prop="personStats">
-          <el-col :span="12">
-            <el-input v-model="AddModel.personStats" clearable style="width: 300px" />
-            <el-select v-model="AddModel.personStats" placeholder="培训状态">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
           </el-col>
         </el-form-item>
         <!-- 操作按钮 -->
@@ -367,8 +349,9 @@
           },
           //新增信息
           AddModel:{
-            personId: '',
-            personType: '',
+            personId: '0',
+            personName:'',
+            personType: '客服',
             personSfz: '',
             personPhone: '',
             personSex: '',

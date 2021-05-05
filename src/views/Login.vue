@@ -14,7 +14,7 @@
         <el-row>
           <el-col :span="10">密码：</el-col>
           <el-col :span="12">
-            <el-input v-model="user.password" placeholder="请输入密码"/>
+            <el-input v-model="user.password" type="password" placeholder="请输入密码"/>
           </el-col>
         </el-row>
         <br>

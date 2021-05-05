@@ -9,45 +9,7 @@
       </el-col>
     </el-row>
     <br>
-    <!-- 条件模糊查询 -->
-    <el-row class="drug-table-condition">
-      <!--查询条件-->
-      <el-col :span="4" :offset="1">
-        <el-input v-model="SelectModel.personId" placeholder="人员id" clearable/>
-      </el-col>
-      <el-col :span="4" :offset="1">
-        <el-select v-model="SelectModel.personStats" placeholder="培训状态">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          </el-option>
-        </el-select>
-      </el-col>
-      <!--查询按钮-->
-      <el-col :span="3" :offset="2">
-        <el-button type="primary"  style="width: 100%;" @click="SelectByAny()"
-                   icon="el-icon-search">查询
-        </el-button>
-      </el-col>
-    </el-row>
     <br>
-    <!--操作按钮-->
-    <el-row>
-      <!--批量删除按钮-->
-      <el-col :span="3" >
-        <el-button type="danger"  style="width: 80%;" @click="DeleteByList" size="small" icon="el-icon-delete">批量删除
-        </el-button>
-      </el-col>
-      <!--信息添加按钮-->
-      <el-col :span="3" >
-        <el-button type="success" icon="el-icon-upload2"  size="small"
-                   @click="InsertWithModel">
-          信息添加
-        </el-button>
-      </el-col>
-    </el-row>
     <!--主表格-->
     <el-table
       :data="resultList"
@@ -103,8 +65,8 @@
       >
       </el-table-column>
       <el-table-column
-        prop="stats"
-        label="人员状态"
+        prop="personPopularity"
+        label="排名指数"
         align="center"
       >
       </el-table-column>

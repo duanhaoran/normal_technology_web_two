@@ -87,13 +87,6 @@
       >
       </el-table-column>
       <el-table-column
-        prop="password"
-        label="用户密码"
-        width="200"
-        align="center"
-      >
-      </el-table-column>
-      <el-table-column
         prop="roleId"
         label="角色Id"
         width="200"
@@ -117,13 +110,6 @@
       <el-table-column
         prop="status"
         label="帐号启用状态:0->禁用；1->启用"
-        width="200"
-        align="center"
-      >
-      </el-table-column>
-      <el-table-column
-        prop="userNum"
-        label="${column.comment}"
         width="200"
         align="center"
       >
@@ -213,9 +199,6 @@
         <el-form-item label="帐号启用状态:0->禁用；1->启用">
           <span>{{ InfoModel.status }}</span>
         </el-form-item>
-        <el-form-item label="${column.comment}">
-          <span>{{ InfoModel.userNum }}</span>
-        </el-form-item>
         <el-form-item label="所属部门id">
           <span>{{ InfoModel.userDepartmentId }}</span>
         </el-form-item>
@@ -230,7 +213,7 @@
         <!--信息列表-->
         <el-form-item label="用户ID" prop="userId">
           <el-col :span="12">
-            <el-input v-model="InfoModel.userId" clearable style="width: 300px" />
+            <el-input v-model="InfoModel.userId" disabled clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="用户名称" prop="userName">
@@ -240,7 +223,7 @@
         </el-form-item>
         <el-form-item label="用户密码" prop="password">
           <el-col :span="12">
-            <el-input v-model="InfoModel.password" clearable style="width: 300px" />
+            <el-input v-model="InfoModel.password" disabled clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="角色Id" prop="roleId">
@@ -261,11 +244,6 @@
         <el-form-item label="帐号启用状态:0->禁用；1->启用" prop="status">
           <el-col :span="12">
             <el-input v-model="InfoModel.status" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="${column.comment}" prop="userNum">
-          <el-col :span="12">
-            <el-input v-model="InfoModel.userNum" clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="所属部门id" prop="userDepartmentId">
@@ -325,11 +303,6 @@
         <el-form-item label="帐号启用状态:0->禁用；1->启用" prop="status">
           <el-col :span="12">
             <el-input v-model="AddModel.status" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="${column.comment}" prop="userNum">
-          <el-col :span="12">
-            <el-input v-model="AddModel.userNum" clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="所属部门id" prop="userDepartmentId">
@@ -403,7 +376,7 @@
           userAge: '',
           userSex: '',
           status: '',
-          userNum: '',
+          userNum: 'WU',
           userDepartmentId: '',
         },
         userall:{

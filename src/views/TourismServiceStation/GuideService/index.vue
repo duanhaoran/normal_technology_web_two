@@ -35,23 +35,11 @@
     <br>
     <!--操作按钮-->
     <el-row>
-      <!--批量删除按钮-->
-      <el-col :span="3" >
-        <el-button type="danger"  style="width: 80%;" @click="DeleteByList" size="small" icon="el-icon-delete">批量删除
-        </el-button>
-      </el-col>
-      <!--信息下载按钮-->
-      <el-col :span="3" :offset="8">
-        <el-button type="primary" icon="el-icon-document" size="small"
-                   @click="download(`/api/guideReservation/Exporttemplate`,'信息.xls')">
-          信息下载
-        </el-button>
-      </el-col>
       <!--信息添加按钮-->
       <el-col :span="3" >
         <el-button type="success" icon="el-icon-upload2"  size="small"
                    @click="InsertWithModel">
-          信息添加
+          导游预定
         </el-button>
       </el-col>
     </el-row>
@@ -64,11 +52,6 @@
       ref="multipleTable"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column
-        type="selection"
-        width="55"
-      >
-      </el-table-column>
       <el-table-column align="center" label="#"  type="index" width="180">
 
       </el-table-column>
@@ -217,24 +200,28 @@
       <el-divider><i class="el-icon-mouse"/></el-divider>
       <el-form :model="AddModel"  label-width="90px" label-position="left">
         <!-- 信息列表 -->
-        <el-form-item label="预定ID" prop="guideReservationId">
-          <el-col :span="12">
-            <el-input v-model="AddModel.guideReservationId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="预定用户" prop="guideReservationUserId">
-          <el-col :span="12">
-            <el-input v-model="AddModel.guideReservationUserId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
         <el-form-item label="预定导游" prop="guideReservationTouristId">
           <el-col :span="12">
-            <el-input v-model="AddModel.guideReservationTouristId" clearable style="width: 300px" />
+            <el-select v-model="AddModel.guideReservationTouristId" placeholder="导游选择">
+              <el-option
+                v-for="item in guideList"
+                :key="item.personId"
+                :label="item.personName"
+                :value="item.personId">
+              </el-option>
+            </el-select>
           </el-col>
         </el-form-item>
         <el-form-item label="预定时间" prop="guideReservationDate">
           <el-col :span="12">
-            <el-input v-model="AddModel.guideReservationDate" clearable style="width: 300px" />
+<!--            <el-input v-model="AddModel.guideReservationDate" clearable style="width: 300px" />-->
+            <div class="block">
+              <el-date-picker
+                v-model="AddModel.guideReservationDate"
+                type="date"
+                placeholder="选择日期">
+              </el-date-picker>
+            </div>
           </el-col>
         </el-form-item>
         <!-- 操作按钮 -->
@@ -254,6 +241,8 @@
 </template>
 
 <script>
+    import store from "../../../store";
+
     export default {
       name: "GuideReservationinfo",
       data() {
@@ -279,6 +268,7 @@
             guideReservationTouristId: '',
             guideReservationDate: '',
           },
+          guideList:[],
           //分页
           pageNum: 1,
           pageSize: 5,
@@ -297,7 +287,7 @@
           },
           //新增信息
           AddModel:{
-            guideReservationId: '',
+            guideReservationId: '0',
             guideReservationUserId: '',
             guideReservationTouristId: '',
             guideReservationDate: '',
@@ -319,6 +309,7 @@
       created() {
         //面包屑创建方法
         this.getBreadcrumb()
+        this.AddModel.guideReservationUserId = store.state.common.user_id
         this.$axios.get(
           this.selectByAny,
           {pageNum:this.pageNum,pageSize:this.pageSize},
@@ -326,6 +317,16 @@
             if (res.resultCode === 1) {
               this.resultList = res.date.dataList
               this.resultCount = res.date.total
+            }
+          }
+        );
+        this.$axios.get(
+          '/api/touristAnalysis/selectGuidePopularityAllByPopularity',
+          {pageNum:1,pageSize:1000,personType:'导游'},
+          (res) => {
+            if (res.resultCode === 1) {
+              console.log(res)
+              this.guideList = res.date
             }
           }
         );
