@@ -13,15 +13,12 @@
     <el-row class="drug-table-condition">
       <!--查询条件-->
       <el-col :span="4" :offset="1">
-        <el-input v-model="SelectModel.shopName" placeholder="店铺名称" clearable/>
-      </el-col>
-      <el-col :span="4" :offset="1">
-        <el-select v-model="SelectModel.shopLevel" placeholder="请选择店铺级别">
+        <el-select v-model="SelectModel.guideReservationUserId" placeholder="请选择用户">
           <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
+            v-for="item in userList"
+            :key="item.userId"
+            :label="item.userName"
+            :value="item.userId">
           </el-option>
         </el-select>
       </el-col>
@@ -161,24 +158,16 @@
       <!-- 信息添加 -->
       <el-form :model="InfoModel" label-width="80px" label-position="left" >
         <!--信息列表-->
-        <el-form-item label="预定ID" prop="guideReservationId">
-          <el-col :span="12">
-            <el-input v-model="InfoModel.guideReservationId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="预定用户" prop="guideReservationUserId">
-          <el-col :span="12">
-            <el-input v-model="InfoModel.guideReservationUserId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
-        <el-form-item label="预定导游" prop="guideReservationTouristId">
-          <el-col :span="12">
-            <el-input v-model="InfoModel.guideReservationTouristId" clearable style="width: 300px" />
-          </el-col>
-        </el-form-item>
         <el-form-item label="预定时间" prop="guideReservationDate">
           <el-col :span="12">
-            <el-input v-model="InfoModel.guideReservationDate" clearable style="width: 300px" />
+            <!--            <el-input v-model="AddModel.guideReservationDate" clearable style="width: 300px" />-->
+            <div class="block">
+              <el-date-picker
+                v-model="InfoModel.guideReservationDate"
+                type="date"
+                placeholder="选择日期">
+              </el-date-picker>
+            </div>
           </el-col>
         </el-form-item>
         <!--信息修改按钮-->
@@ -304,9 +293,19 @@
           insertOne:'/api/guideReservation/insertGuideReservationOne',
           deleteByList:'/api/guideReservation/deleteGuideReservationByList',
           deleteOne:'/api/guideReservation/deleteGuideReservationOne',
+          userList:[],
         }
       },
       created() {
+        this.$axios.get(
+          '/api/user/selectUserByAny',
+          {pageNum:1,pageSize:1000},
+          (res) => {
+            if (res.resultCode === 1) {
+              this.userList = res.date.dataList
+            }
+          }
+        );
         //面包屑创建方法
         this.getBreadcrumb()
         this.AddModel.guideReservationUserId = store.state.common.user_id
@@ -350,7 +349,7 @@
               pageNum:this.pageNum,
               pageSize:this.pageSize,
               personId:this.SelectModel.personId,
-              personStats:this.SelectModel.personStats,
+              guideReservationUserId:this.SelectModel.guideReservationUserId,
               personType:'导游'
             },
             (res) => {

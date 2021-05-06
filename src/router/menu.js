@@ -251,7 +251,7 @@ const menu =[
         fixed: false
       },{
         path: '/CustomerServiceCenter/routePlan',
-        name: 'routePlan',
+        name: '路线规划管理',
         icon: 'el-icon-menu',
         level: 1,
         sort: 1,
@@ -259,7 +259,7 @@ const menu =[
         fixed: false
       },{
         path: '/CustomerServiceCenter/setMeal',
-        name: 'setMeal',
+        name: '套餐信息管理',
         icon: 'el-icon-menu',
         level: 1,
         sort: 1,
@@ -267,7 +267,7 @@ const menu =[
         fixed: false
       },{
         path: '/CustomerServiceCenter/interaction',
-        name: 'interaction',
+        name: '互动信息管理',
         icon: 'el-icon-menu',
         level: 1,
         sort: 1,
