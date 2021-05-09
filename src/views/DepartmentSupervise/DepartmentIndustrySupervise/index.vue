@@ -43,13 +43,13 @@
         <el-button type="danger"  style="width: 80%;" @click="DeleteByList" size="small" icon="el-icon-delete">批量删除
         </el-button>
       </el-col>
-      <!--信息下载按钮-->
-      <el-col :span="3" :offset="8">
-        <el-button type="primary" icon="el-icon-document" size="small"
-                   @click="download(`/api/supervise/Exporttemplate`,'信息.xls')">
-          信息下载
-        </el-button>
-      </el-col>
+<!--      &lt;!&ndash;信息下载按钮&ndash;&gt;-->
+<!--      <el-col :span="3" :offset="8">-->
+<!--        <el-button type="primary" icon="el-icon-document" size="small"-->
+<!--                   @click="download(`/api/supervise/Exporttemplate`,'信息.xls')">-->
+<!--          信息下载-->
+<!--        </el-button>-->
+<!--      </el-col>-->
       <!--信息添加按钮-->
       <el-col :span="3" >
         <el-button type="success" icon="el-icon-upload2"  size="small"

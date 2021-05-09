@@ -51,7 +51,7 @@
       <el-col :span="3" >
         <el-button type="success" icon="el-icon-upload2"  size="small"
                    @click="InsertWithModel">
-          信息添加
+          预定
         </el-button>
       </el-col>
     </el-row>
@@ -443,6 +443,9 @@
         },
         //添加提交
         handleInsert() {
+          if (this.AddModel.scenicSpotId===''){
+            this.falseMession();
+          }else{
           this.$axios.post(
             this.insertOne,
             this.AddModel,
@@ -454,7 +457,7 @@
               }else {
                 this.falseMession();
               }
-            })
+            })}
         },
         //批量删除
         handleSelectionChange(val) {

@@ -16,7 +16,7 @@
     <el-row class="drug-table-condition">
       <!--查询条件-->
       <el-col :span="4" :offset="1">
-        <el-input v-model="SelectModel.enterpriseName" placeholder="店铺名称" clearable/>
+        <el-input v-model="SelectModel.enterpriseName" placeholder="企业名称" clearable/>
       </el-col>
       <el-col :span="4" :offset="1">
         <el-select v-model="SelectModel.industryId" placeholder="请选择所属行业">

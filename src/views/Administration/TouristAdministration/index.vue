@@ -41,12 +41,12 @@
         </el-button>
       </el-col>
       <!--信息下载按钮-->
-      <el-col :span="3" :offset="8">
-        <el-button type="primary" icon="el-icon-document" size="small"
-                   @click="download(`/api/tourist/Exporttemplate`,'用户表信息.xls')">
-          信息下载
-        </el-button>
-      </el-col>
+<!--      <el-col :span="3" :offset="8">-->
+<!--        <el-button type="primary" icon="el-icon-document" size="small"-->
+<!--                   @click="download(`/api/tourist/Exporttemplate`,'用户表信息.xls')">-->
+<!--          信息下载-->
+<!--        </el-button>-->
+<!--      </el-col>-->
       <!--信息添加按钮-->
       <el-col :span="3" >
         <el-button type="success" icon="el-icon-upload2"  size="small"
@@ -86,13 +86,20 @@
         align="center"
       >
       </el-table-column>
-      <el-table-column
-        prop="roleId"
-        label="角色Id"
-        width="200"
-        align="center"
-      >
-      </el-table-column>
+<!--      <el-table-column-->
+<!--        prop="password"-->
+<!--        label="用户密码"-->
+<!--        width="200"-->
+<!--        align="center"-->
+<!--      >-->
+<!--      </el-table-column>-->
+<!--      <el-table-column-->
+<!--        prop="roleId"-->
+<!--        label="角色Id"-->
+<!--        width="200"-->
+<!--        align="center"-->
+<!--      >-->
+<!--      </el-table-column>-->
       <el-table-column
         prop="userAge"
         label="用户年龄"
@@ -114,13 +121,20 @@
         align="center"
       >
       </el-table-column>
-      <el-table-column
-        prop="userDepartmentId"
-        label="所属部门id"
-        width="200"
-        align="center"
-      >
-      </el-table-column>
+<!--      <el-table-column-->
+<!--        prop="userNum"-->
+<!--        label="${column.comment}"-->
+<!--        width="200"-->
+<!--        align="center"-->
+<!--      >-->
+<!--      </el-table-column>-->
+<!--      <el-table-column-->
+<!--        prop="userDepartmentId"-->
+<!--        label="所属部门id"-->
+<!--        width="200"-->
+<!--        align="center"-->
+<!--      >-->
+<!--      </el-table-column>-->
       <el-table-column
         fixed="right"
         label="操作"
@@ -184,9 +198,9 @@
         <el-form-item label="用户名称">
           <span>{{ InfoModel.userName }}</span>
         </el-form-item>
-        <el-form-item label="用户密码">
-          <span>{{ InfoModel.password }}</span>
-        </el-form-item>
+<!--        <el-form-item label="用户密码">-->
+<!--          <span>{{ InfoModel.password }}</span>-->
+<!--        </el-form-item>-->
         <el-form-item label="角色Id">
           <span>{{ InfoModel.roleId }}</span>
         </el-form-item>
@@ -196,12 +210,15 @@
         <el-form-item label="用户性别">
           <span>{{ InfoModel.userSex }}</span>
         </el-form-item>
-        <el-form-item label="帐号启用状态:0->禁用；1->启用">
-          <span>{{ InfoModel.status }}</span>
-        </el-form-item>
-        <el-form-item label="所属部门id">
-          <span>{{ InfoModel.userDepartmentId }}</span>
-        </el-form-item>
+<!--        <el-form-item label="帐号启用状态:0->禁用；1->启用">-->
+<!--          <span>{{ InfoModel.status }}</span>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="${column.comment}">-->
+<!--          <span>{{ InfoModel.userNum }}</span>-->
+<!--        </el-form-item>-->
+<!--        <el-form-item label="所属部门id">-->
+<!--          <span>{{ InfoModel.userDepartmentId }}</span>-->
+<!--        </el-form-item>-->
       </el-form>
     </el-dialog>
     <!-- 修改详情的模态框 -->
@@ -213,7 +230,7 @@
         <!--信息列表-->
         <el-form-item label="用户ID" prop="userId">
           <el-col :span="12">
-            <el-input v-model="InfoModel.userId" disabled clearable style="width: 300px" />
+            <el-input v-model="InfoModel.userId" clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="用户名称" prop="userName">
@@ -223,7 +240,7 @@
         </el-form-item>
         <el-form-item label="用户密码" prop="password">
           <el-col :span="12">
-            <el-input v-model="InfoModel.password" disabled clearable style="width: 300px" />
+            <el-input v-model="InfoModel.password" clearable style="width: 300px" />
           </el-col>
         </el-form-item>
         <el-form-item label="角色Id" prop="roleId">

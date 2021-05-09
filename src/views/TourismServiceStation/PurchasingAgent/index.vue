@@ -348,7 +348,7 @@
 <!--            <el-input v-model="AddModel.orderInformainTitle" clearable style="width: 300px" />-->
 <!--          </el-col>-->
 <!--        </el-form-item>-->
-        <el-form-item label="预定介绍" prop="orderInformainTxt">
+        <el-form-item label="信息介绍" prop="orderInformainTxt">
           <el-col :span="12">
             <el-input v-model="AddModel.orderInformainTxt" clearable style="width: 300px" />
           </el-col>
@@ -634,6 +634,9 @@
         },
         //添加提交
         handleInsert() {
+          if (this.AddModel.orderInformainTxt===''){
+            this.falseMession();
+          }else{
           this.$axios.post(
             this.insertOne,
             this.AddModel,
@@ -645,7 +648,7 @@
               }else {
                 this.falseMession();
               }
-            })
+            })}
         },
         //批量删除
         handleSelectionChange(val) {

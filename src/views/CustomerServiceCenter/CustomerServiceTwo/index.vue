@@ -609,6 +609,9 @@
       },
       //添加提交
       handleInsert() {
+        if (this.AddModel.proposeOpinion===''){
+          this.falseMession();
+        }else{
         this.$axios.post(
           this.insertOne,
           this.AddModel,
@@ -620,7 +623,7 @@
             }else {
               this.falseMession();
             }
-          })
+          })}
       },
       //批量删除
       handleSelectionChange(val) {
